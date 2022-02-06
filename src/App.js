@@ -11,8 +11,8 @@ function App() {
 
   // ===> créer un état pour initialiser notre list todo
   const [todolist, setTodolist] = useState([
-    { label: "manger", isDone: false },
-    { label: "dormir", isDone: false },
+    { label: "Boire de l'eau", isDone: false },
+    { label: "Lire 30 pages d'un livre", isDone: false },
   ]);
 
   // ===> fonction lorsqu'on submit le form
