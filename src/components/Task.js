@@ -14,6 +14,20 @@ const Task = ({ value, setTodolist, isDone, indexTask, todolist }) => {
     setTodolist(newTodolistChecked);
   };
 
+  // ===> fonction lorsqu'on clique sur l'icon trash
+  // const handleClickTrashIcon = () => {
+  //   const newTodolistWithoutTask = [...todolist];
+  //   newTodolistWithoutTask.remove(newTodolistWithoutTask[indexTask]);
+  //   setTodolist(newTodolistWithoutTask);
+  // };
+
+  // ===> fonction lorsqu'on clique sur l'icon trash
+  const handleClickTrashIcon = () => {
+    const newTodolistWithoutTask = [...todolist];
+    delete newTodolistWithoutTask[indexTask];
+    setTodolist(newTodolistWithoutTask);
+  };
+
   return (
     <div className="checkbox_div">
       {/* <input type="checkbox" onClick={() => (isDone = false)} /> */}
@@ -24,7 +38,7 @@ const Task = ({ value, setTodolist, isDone, indexTask, todolist }) => {
       >
         {value}
       </p>
-      <FontAwesomeIcon icon="trash" />
+      <FontAwesomeIcon icon="trash" onClick={handleClickTrashIcon} />
     </div>
   );
 };
