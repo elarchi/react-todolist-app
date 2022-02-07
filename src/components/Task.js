@@ -1,18 +1,19 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+// [nota-bene] destructuring : props.value === {value}
 const Task = ({ value, setTodolist, isDone, indexTask, todolist }) => {
-  // ===> fonction lorsqu'on clique sur un checkbox
-  const handleClickCheckbox = () => {
-    const newTodolistChecked = [...todolist];
-    newTodolistChecked.map(() => {
-      if (isDone === false) {
-        return (newTodolistChecked[indexTask].isDone = true);
-      } else {
-        return (newTodolistChecked[indexTask].isDone = false);
-      }
-    });
-    setTodolist(newTodolistChecked);
-  };
+  /*  ------------ SETTING UP THE FUNCTION TO HANDLE THE CLICK ON THE CHECKBOXS */ const handleClickCheckbox =
+    () => {
+      const newTodolistChecked = [...todolist];
+      newTodolistChecked.map(() => {
+        if (isDone === false) {
+          return (newTodolistChecked[indexTask].isDone = true);
+        } else {
+          return (newTodolistChecked[indexTask].isDone = false);
+        }
+      });
+      setTodolist(newTodolistChecked);
+    };
 
   // ===> fonction lorsqu'on clique sur l'icon trash
   // const handleClickTrashIcon = () => {
@@ -24,7 +25,7 @@ const Task = ({ value, setTodolist, isDone, indexTask, todolist }) => {
   // ===> fonction lorsqu'on clique sur l'icon trash
   const handleClickTrashIcon = () => {
     const newTodolistWithoutTask = [...todolist];
-    delete newTodolistWithoutTask[indexTask];
+    newTodolistWithoutTask.splice(indexTask, 1);
     setTodolist(newTodolistWithoutTask);
   };
 
